@@ -12,6 +12,7 @@ class RegistrationController: UIViewController {
     // MARK: - Properties
     
     private var viewModel = RegistrationViewModel()
+    private var profileImage: UIImage?
     
     private let plushPhotoButton: UIButton = {
         let button = UIButton(type: .system)
@@ -45,6 +46,7 @@ class RegistrationController: UIViewController {
         button.setHeight(50)
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 20)
         button.isEnabled = false
+        button.addTarget(self, action: #selector(handleSingUp), for: .touchUpInside)
         return button
     }()
     
@@ -64,6 +66,22 @@ class RegistrationController: UIViewController {
     }
     
     // MARK: - Actions
+    
+    @objc func handleSingUp() {
+        guard let email = emailTextField.text else { return }
+        guard let password = passwordTextField.text else { return }
+        guard let fullName = fullNameTextField.text else { return }
+        guard let userName = userNameTextField.text else { return }
+        guard let profileImage = self.profileImage else { return }
+        
+        let cretential = AuthCretentials(email: email,
+                                         password: password,
+                                         fullName: fullName,
+                                         userName: userName,
+                                         profileImage: profileImage)
+        
+        AuthService.registerUser(withCretential: cretential)
+    }
     
     @objc func handleShowLogin() {
         navigationController?.popViewController(animated: true)
@@ -137,6 +155,7 @@ extension RegistrationController: UIImagePickerControllerDelegate, UINavigationC
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         
         guard let selectedImage = info[.editedImage] as? UIImage else { return }
+        profileImage = selectedImage
         
         plushPhotoButton.layer.cornerRadius = plushPhotoButton.frame.width / 2
         plushPhotoButton.layer.masksToBounds = true
