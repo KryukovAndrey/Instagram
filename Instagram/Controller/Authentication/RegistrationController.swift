@@ -80,7 +80,14 @@ class RegistrationController: UIViewController {
                                          userName: userName,
                                          profileImage: profileImage)
         
-        AuthService.registerUser(withCretential: cretential)
+        AuthService.registerUser(withCretential: cretential) { error in
+            if let error = error {
+                print("DEBAG: Failed to regiter user \(error.localizedDescription)")
+                return
+            }
+            
+            self.dismiss(animated: true, completion: nil)
+        }
     }
     
     @objc func handleShowLogin() {

@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Firebase
 
 class LoginController: UIViewController {
     
@@ -40,6 +41,7 @@ class LoginController: UIViewController {
         button.setHeight(50)
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 20)
         button.isEnabled = false
+        button.addTarget(self, action: #selector(handleLogin), for: .touchUpInside)
         return button
     }()
     
@@ -80,6 +82,18 @@ class LoginController: UIViewController {
         }
         
         updateForm()
+    }
+    
+    @objc func handleLogin() {
+        guard let email = emailTextField.text else { return }
+        guard let password = passwordTextField.text else { return }
+        AuthService.logUserIn(withEmail: email, password: password) { result, error in
+            if let error = error {
+                print("DEBAG: Failed to regiter user \(error.localizedDescription)")
+                return
+            }
+            self.dismiss(animated: true, completion: nil)
+        }
     }
     
     // MARK: - Helpers
