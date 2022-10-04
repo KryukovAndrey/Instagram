@@ -8,11 +8,16 @@
 import UIKit
 import Firebase
 
+protocol AuthenticationDelegate: class {
+    func authenticationDidComplete()
+}
+
 class LoginController: UIViewController {
     
     // MARK: - Properties
     
     private var viewModel = LoginViewModel()
+    weak var delegate: AuthenticationDelegate?
     
     private let iconImage: UIImageView = {
         let imageView = UIImageView(image: #imageLiteral(resourceName: "Instagram_logo_white"))
@@ -71,6 +76,7 @@ class LoginController: UIViewController {
     
     @objc func handleShowSingUp() {
         let controller = RegistrationController()
+        controller.delegate = delegate
         navigationController?.pushViewController(controller, animated: true)
     }
     
@@ -89,10 +95,10 @@ class LoginController: UIViewController {
         guard let password = passwordTextField.text else { return }
         AuthService.logUserIn(withEmail: email, password: password) { result, error in
             if let error = error {
-                print("DEBAG: Failed to regiter user \(error.localizedDescription)")
+                print("DEBUG: Failed to regiter user \(error.localizedDescription)")
                 return
             }
-            self.dismiss(animated: true, completion: nil)
+            self.delegate?.authenticationDidComplete()
         }
     }
     

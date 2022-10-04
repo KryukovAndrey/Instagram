@@ -20,15 +20,7 @@ struct AuthCretentials {
 struct AuthService {
     static func logUserIn(withEmail email: String, password: String, completion: ((AuthDataResult?, Error?) -> Void)?) {
         Auth.auth().signIn(withEmail: email, password: password, completion: completion)
-//        Auth.auth().signIn(withEmail: <#T##String#>, password: <#T##String#>, completion: <#T##((AuthDataResult?, Error?) -> Void)?##((AuthDataResult?, Error?) -> Void)?##(AuthDataResult?, Error?) -> Void#>)
-//        Auth.auth().signIn(withEmail: email, password: password) { result, error in
-//            if let error = error {
-//                print("DEBAG: Failed to regiter user \(error.localizedDescription)")
-//                return
-//            }
-//            completion
-//        }
-        }
+    }
     
     static func registerUser(withCretential cretential: AuthCretentials, completion: @escaping(Error?) -> Void ) {
         
@@ -36,7 +28,7 @@ struct AuthService {
             Auth.auth().createUser(withEmail: cretential.email, password: cretential.password) { (result, error) in
                 
                 if let error = error {
-                    print("DEBAG: Failed to regiter user \(error.localizedDescription)")
+                    print("DEBUG: Failed to regiter user \(error.localizedDescription)")
                     return
                 }
                 
@@ -44,11 +36,11 @@ struct AuthService {
                 
                 let data: [String : Any] = ["email" : cretential.email,
                                             "fullName" : cretential.fullName,
-                                            "profilaImage" : imageUrl,
+                                            "profileImage" : imageUrl,
                                             "uid" : uid,
                                             "userName" : cretential.userName]
                 
-                Firestore.firestore().collection("users").document(uid).setData(data, completion: completion)
+                COLLECTION_USERS.document(uid).setData(data, completion: completion)
             }
         }
     }
