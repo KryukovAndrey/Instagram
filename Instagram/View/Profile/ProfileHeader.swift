@@ -8,6 +8,10 @@
 import UIKit
 import Kingfisher
 
+protocol ProfileHeaderDelegate: class {
+    func header(_ profileHeader: ProfileHeader, didTapActionButtonFor user: User)
+}
+
 class ProfileHeader: UICollectionReusableView {
     
     // MARK: - Properties
@@ -15,6 +19,8 @@ class ProfileHeader: UICollectionReusableView {
     var viewModel: ProfileHeaderViewModel? {
         didSet { configure() }
     }
+    
+    weak var delegate: ProfileHeaderDelegate?
     
     private let profileImageView: UIImageView = {
         let imageView = UIImageView()
@@ -46,7 +52,6 @@ class ProfileHeader: UICollectionReusableView {
         let label = UILabel()
         label.numberOfLines = 0
         label.textAlignment = .center
-        label.attributedText = attributedStatText(value: 5, label: "post")
         return label
     }()
     
@@ -54,7 +59,6 @@ class ProfileHeader: UICollectionReusableView {
         let label = UILabel()
         label.numberOfLines = 0
         label.textAlignment = .center
-        label.attributedText = attributedStatText(value: 2, label: "followers")
         return label
     }()
     
@@ -62,7 +66,6 @@ class ProfileHeader: UICollectionReusableView {
         let label = UILabel()
         label.numberOfLines = 0
         label.textAlignment = .center
-        label.attributedText = attributedStatText(value: 1, label: "following")
         return label
     }()
     
@@ -136,7 +139,8 @@ class ProfileHeader: UICollectionReusableView {
     // MARK: - Actions
     
     @objc func handleProfileFollowTapped() {
-        print("DEBUG: handleProfileFollowTapped")
+        guard let viewModel = viewModel else { return }
+        delegate?.header(self, didTapActionButtonFor: viewModel.user)
     }
     
     // MARK: - Helpers
@@ -147,12 +151,13 @@ class ProfileHeader: UICollectionReusableView {
         nameLabel.text = viewModel.fullName
         let url = URL(string: viewModel.profileImage)
         profileImageView.kf.setImage(with: url)
-    }
-    
-    func attributedStatText(value: Int, label: String) -> NSAttributedString {
-        let attributedText = NSMutableAttributedString(string: "\(value)\n", attributes: [.font: UIFont.boldSystemFont(ofSize: 14)])
-        attributedText.append(NSAttributedString(string: label, attributes: [.font: UIFont.systemFont(ofSize: 14), .foregroundColor: UIColor.lightGray]))
-            
-        return attributedText
+        
+        editProfileFollowButton.setTitle(viewModel.followButtonText, for: .normal)
+        editProfileFollowButton.setTitleColor(viewModel.followButtonTextColor, for: .normal)
+        editProfileFollowButton.backgroundColor = viewModel.followButtonBackgroundColor
+        
+        postLabel.attributedText = viewModel.numbersOfPosts
+        followersLabel.attributedText = viewModel.numbersOfFollowers
+        followingLabel.attributedText = viewModel.numbersOfFollowing
     }
 }

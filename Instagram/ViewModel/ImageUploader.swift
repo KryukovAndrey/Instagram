@@ -9,7 +9,7 @@ import UIKit
 import FirebaseStorage
 
 struct ImageUploader {
-    static func imageUploader(image: UIImage, complection: @escaping(String) -> Void) {
+    static func imageUploader(image: UIImage, completion: @escaping(String) -> Void) {
         guard let imageData = image.jpegData(compressionQuality: 0.75) else { return }
         let fileName = NSUUID().uuidString
         let ref = Storage.storage().reference(withPath: "profile_images/\(fileName)")
@@ -22,7 +22,7 @@ struct ImageUploader {
             
             ref.downloadURL { (url, error) in
                 guard let imageUrl = url?.absoluteString else {return}
-                complection(imageUrl)
+                completion(imageUrl)
             }
         }
     }
