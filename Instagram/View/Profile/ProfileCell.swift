@@ -6,10 +6,15 @@
 //
 
 import UIKit
+import Kingfisher
 
 class ProfileCell: UICollectionViewCell {
     
     // MARK: - Properties
+    
+    var viewModel: PostViewModel? {
+        didSet { configure() }
+    }
     
     private let postImageView: UIImageView = {
         let imageView = UIImageView()
@@ -32,5 +37,10 @@ class ProfileCell: UICollectionViewCell {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    func configure() {
+        guard let viewModel = viewModel else { return }
+        postImageView.kf.setImage(with: viewModel.imageUrl)
     }
 }

@@ -30,12 +30,12 @@ struct User {
         self.userName = dictionary["userName"] as? String ?? ""
         self.uid = dictionary["uid"] as? String ?? ""
         
-        self.stats = UserStats(followers: 0, following: 0)
+        self.stats = UserStats(followers: 0, following: 0, posts: 0)
     }
 }
 
 struct UserStats {
     var followers: Int
     var following: Int
-//    var posts: Int
+    var posts: Int
 }

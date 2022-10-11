@@ -6,24 +6,28 @@
 //
 
 import UIKit
+import Kingfisher
 
 class FeedCell: UICollectionViewCell {
     
     // MARK: - Properties
+    
+    var viewModel: PostViewModel? {
+        didSet { configure() }
+    }
     
     private let profileImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
         imageView.isUserInteractionEnabled = true
-        imageView.image = #imageLiteral(resourceName: "venom-7")
+        imageView.backgroundColor = .lightGray
         return imageView
     }()
     
     private lazy var userNameButton: UIButton = {
         let button = UIButton(type: .system)
         button.setTitleColor(.black, for: .normal)
-        button.setTitle("Venom", for: .normal)
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 13)
         button.addTarget(self, action: #selector(didTapUserName), for: .touchUpInside)
         return button
@@ -68,7 +72,6 @@ class FeedCell: UICollectionViewCell {
     
     private let captionLabel: UILabel = {
         let label = UILabel()
-        label.text = "Some text caption for now..."
         label.font = UIFont.systemFont(ofSize: 14)
         return label
     }()
@@ -123,6 +126,17 @@ class FeedCell: UICollectionViewCell {
     }
     
     // MARK: - Helpers
+    
+    func configure() {
+        guard let viewModel = viewModel else { return }
+        captionLabel.text = viewModel.caption
+        postImageView.kf.setImage(with: viewModel.imageUrl)
+        
+        profileImageView.kf.setImage(with: viewModel.userProfileImageUrl)
+        userNameButton.setTitle(viewModel.userName, for: .normal)
+        
+        likesLabel.text = viewModel.likesLabelText
+    }
     
     func configureActionButtons() {
         let stackView = UIStackView(arrangedSubviews: [likeButton, commentButton, shareButton])
