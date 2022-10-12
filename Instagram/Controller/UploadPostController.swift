@@ -30,11 +30,12 @@ class UploadPostController: UIViewController {
         return imageView
     }()
     
-    private lazy var captionTextView: ImputTextView = {
-        let textView = ImputTextView()
+    private lazy var captionTextView: InputTextView = {
+        let textView = InputTextView()
         textView.placeholderText = "Enter caption..."
         textView.font = UIFont.systemFont(ofSize: 16)
         textView.delegate = self
+        textView.placeholderShouldCenter = false
         return textView
     }()
     

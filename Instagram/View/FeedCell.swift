@@ -8,6 +8,10 @@
 import UIKit
 import Kingfisher
 
+protocol FeedCellDelegate: class {
+    func cell(_ cell: FeedCell, wantsToShowCommentsFor post: Post)
+}
+
 class FeedCell: UICollectionViewCell {
     
     // MARK: - Properties
@@ -15,6 +19,8 @@ class FeedCell: UICollectionViewCell {
     var viewModel: PostViewModel? {
         didSet { configure() }
     }
+    
+    weak var delegate: FeedCellDelegate?
     
     private let profileImageView: UIImageView = {
         let imageView = UIImageView()
@@ -53,6 +59,7 @@ class FeedCell: UICollectionViewCell {
         let button = UIButton(type: .system)
         button.setImage(#imageLiteral(resourceName: "comment"), for: .normal)
         button.tintColor = .black
+        button.addTarget(self, action: #selector(didTapComments), for: .touchUpInside)
         return button
     }()
     
@@ -123,6 +130,11 @@ class FeedCell: UICollectionViewCell {
     
     @objc func didTapUserName() {
         print("DEBUG: didTapUserName")
+    }
+    
+    @objc func didTapComments() {
+        guard let post = viewModel?.post else { return }
+        delegate?.cell(self, wantsToShowCommentsFor: post)
     }
     
     // MARK: - Helpers

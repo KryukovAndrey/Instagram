@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ImputTextView: UITextView {
+class InputTextView: UITextView {
     
     // MARK: - Properties
     
@@ -20,6 +20,17 @@ class ImputTextView: UITextView {
         label.textColor = .lightGray
         return label
     }()
+    
+    var placeholderShouldCenter = true {
+        didSet {
+            if placeholderShouldCenter {
+                placeholderLabel.anchor(left: leftAnchor, right: rightAnchor, paddingLeft: 8)
+                placeholderLabel.centerY(inView: self)
+            } else {
+                placeholderLabel.anchor(top: topAnchor, left: leftAnchor, paddingTop: 8, paddingLeft: 8)
+            }
+        }
+    }
     
     // MARK: - Lifecycle
     

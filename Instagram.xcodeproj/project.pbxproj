@@ -66,11 +66,14 @@
 		52D787E828ECC05A00677FCE /* UserCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D787E728ECC05A00677FCE /* UserCellViewModel.swift */; };
 		52D787EB28F44B4900677FCE /* YPImagePicker in Frameworks */ = {isa = PBXBuildFile; productRef = 52D787EA28F44B4900677FCE /* YPImagePicker */; };
 		52D787ED28F45B3A00677FCE /* UploadPostController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D787EC28F45B3A00677FCE /* UploadPostController.swift */; };
-		52D787EF28F48EAC00677FCE /* ImputTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D787EE28F48EAC00677FCE /* ImputTextView.swift */; };
+		52D787EF28F48EAC00677FCE /* InputTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D787EE28F48EAC00677FCE /* InputTextView.swift */; };
 		52D787F128F49B2B00677FCE /* PostService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D787F028F49B2B00677FCE /* PostService.swift */; };
 		52D787F428F5953900677FCE /* JGProgressHUD in Frameworks */ = {isa = PBXBuildFile; productRef = 52D787F328F5953900677FCE /* JGProgressHUD */; };
 		52D787F628F5A00800677FCE /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D787F528F5A00800677FCE /* Post.swift */; };
 		52D787F828F5AE0000677FCE /* PostViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D787F728F5AE0000677FCE /* PostViewModel.swift */; };
+		52D787FA28F6D12A00677FCE /* CommentController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D787F928F6D12A00677FCE /* CommentController.swift */; };
+		52D787FC28F6D51100677FCE /* CommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D787FB28F6D51100677FCE /* CommentCell.swift */; };
+		52D787FE28F6E13400677FCE /* CommentInputAccesoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D787FD28F6E13400677FCE /* CommentInputAccesoryView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -106,10 +109,13 @@
 		52D787E528EC4C7800677FCE /* UserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
 		52D787E728ECC05A00677FCE /* UserCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCellViewModel.swift; sourceTree = "<group>"; };
 		52D787EC28F45B3A00677FCE /* UploadPostController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadPostController.swift; sourceTree = "<group>"; };
-		52D787EE28F48EAC00677FCE /* ImputTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImputTextView.swift; sourceTree = "<group>"; };
+		52D787EE28F48EAC00677FCE /* InputTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputTextView.swift; sourceTree = "<group>"; };
 		52D787F028F49B2B00677FCE /* PostService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PostService.swift; path = Instagram/Utils/PostService.swift; sourceTree = SOURCE_ROOT; };
 		52D787F528F5A00800677FCE /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Post.swift; path = Instagram/Utils/Post.swift; sourceTree = SOURCE_ROOT; };
 		52D787F728F5AE0000677FCE /* PostViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewModel.swift; sourceTree = "<group>"; };
+		52D787F928F6D12A00677FCE /* CommentController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentController.swift; sourceTree = "<group>"; };
+		52D787FB28F6D51100677FCE /* CommentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentCell.swift; sourceTree = "<group>"; };
+		52D787FD28F6E13400677FCE /* CommentInputAccesoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentInputAccesoryView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -204,7 +210,7 @@
 			children = (
 				528004E228E475EF002E270C /* Extentions.swift */,
 				5274651728EB33FB008A57A3 /* Constants.swift */,
-				52D787EE28F48EAC00677FCE /* ImputTextView.swift */,
+				52D787EE28F48EAC00677FCE /* InputTextView.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -231,6 +237,7 @@
 				528004DC28E2FDCB002E270C /* NotificationController.swift */,
 				528004DE28E2FDD6002E270C /* ProfileController.swift */,
 				52D787EC28F45B3A00677FCE /* UploadPostController.swift */,
+				52D787F928F6D12A00677FCE /* CommentController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -253,6 +260,8 @@
 				528004E028E47252002E270C /* FeedCell.swift */,
 				528004E928E4D902002E270C /* CustomTextField.swift */,
 				52D787E528EC4C7800677FCE /* UserCell.swift */,
+				52D787FB28F6D51100677FCE /* CommentCell.swift */,
+				52D787FD28F6E13400677FCE /* CommentInputAccesoryView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -388,6 +397,7 @@
 				52D787F828F5AE0000677FCE /* PostViewModel.swift in Sources */,
 				528004EA28E4D902002E270C /* CustomTextField.swift in Sources */,
 				5274651328E73708008A57A3 /* ProfileHeader.swift in Sources */,
+				52D787FA28F6D12A00677FCE /* CommentController.swift in Sources */,
 				52D787ED28F45B3A00677FCE /* UploadPostController.swift in Sources */,
 				528004BF28E2F4C4002E270C /* ViewController.swift in Sources */,
 				528004E628E4A982002E270C /* LoginController.swift in Sources */,
@@ -399,7 +409,7 @@
 				528004DD28E2FDCB002E270C /* NotificationController.swift in Sources */,
 				528004D928E2FD9B002E270C /* SearchController.swift in Sources */,
 				5274651A28EB388C008A57A3 /* User.swift in Sources */,
-				52D787EF28F48EAC00677FCE /* ImputTextView.swift in Sources */,
+				52D787EF28F48EAC00677FCE /* InputTextView.swift in Sources */,
 				528004BB28E2F4C4002E270C /* AppDelegate.swift in Sources */,
 				5274651C28EB3CE4008A57A3 /* ProfileHeaderViewModel.swift in Sources */,
 				5274651828EB33FB008A57A3 /* Constants.swift in Sources */,
@@ -410,11 +420,13 @@
 				5274650D28E5F826008A57A3 /* ImageUploader.swift in Sources */,
 				52D787F628F5A00800677FCE /* Post.swift in Sources */,
 				5274650F28E600E4008A57A3 /* AuthService.swift in Sources */,
+				52D787FE28F6E13400677FCE /* CommentInputAccesoryView.swift in Sources */,
 				52D787F128F49B2B00677FCE /* PostService.swift in Sources */,
 				5274651628EB2FCC008A57A3 /* UserService.swift in Sources */,
 				5274651128E736F6008A57A3 /* ProfileCell.swift in Sources */,
 				528004BD28E2F4C4002E270C /* SceneDelegate.swift in Sources */,
 				528004E828E4A99E002E270C /* RegistrationController.swift in Sources */,
+				52D787FC28F6D51100677FCE /* CommentCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
