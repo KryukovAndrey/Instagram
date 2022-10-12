@@ -7,11 +7,17 @@
 
 import UIKit
 
+protocol CommentInputAccesoryViewDelegate: class {
+    func inputView(_ inputView: CommentInputAccesoryView, wantsToUploadComment comment: String)
+}
+
 class CommentInputAccesoryView: UIView {
     
     // MARK: - Properties
     
-    private let commentTextView: InputTextView = {
+    weak var delegate: CommentInputAccesoryViewDelegate?
+    
+    let commentTextView: InputTextView = {
         let textView = InputTextView()
         textView.placeholderText = "Enter comment..."
         textView.font = UIFont.systemFont(ofSize: 15)
@@ -33,7 +39,7 @@ class CommentInputAccesoryView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
+        backgroundColor = .white
         autoresizingMask = .flexibleHeight
         
         addSubview(postButton)
@@ -60,8 +66,14 @@ class CommentInputAccesoryView: UIView {
     // MARK: - Actions
     
     @objc func handlePostTapped() {
-        
+        delegate?.inputView(self, wantsToUploadComment: commentTextView.text)
     }
 
+    // MARK: - Helpers
+
+    func clearCommentTextView() {
+        commentTextView.text = nil
+        commentTextView.placeholderLabel.isHidden = false
+    }
 }
 
