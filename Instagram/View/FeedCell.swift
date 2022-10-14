@@ -10,6 +10,8 @@ import Kingfisher
 
 protocol FeedCellDelegate: class {
     func cell(_ cell: FeedCell, wantsToShowCommentsFor post: Post)
+    func cell(_ cell: FeedCell, didLike post: Post)
+
 }
 
 class FeedCell: UICollectionViewCell {
@@ -48,10 +50,11 @@ class FeedCell: UICollectionViewCell {
         return imageView
     }()
     
-    private lazy var likeButton: UIButton = {
+    lazy var likeButton: UIButton = {
         let button = UIButton(type: .system)
         button.setImage(#imageLiteral(resourceName: "like_unselected"), for: .normal)
         button.tintColor = .black
+        button.addTarget(self, action: #selector(didTapLike), for: .touchUpInside)
         return button
     }()
     
@@ -133,8 +136,13 @@ class FeedCell: UICollectionViewCell {
     }
     
     @objc func didTapComments() {
-        guard let post = viewModel?.post else { return }
-        delegate?.cell(self, wantsToShowCommentsFor: post)
+        guard let viewModel = viewModel else { return }
+        delegate?.cell(self, wantsToShowCommentsFor: viewModel.post)
+    }
+    
+    @objc func didTapLike() {
+        guard let viewModel = viewModel else { return }
+        delegate?.cell(self, didLike: viewModel.post)
     }
     
     // MARK: - Helpers
@@ -148,6 +156,8 @@ class FeedCell: UICollectionViewCell {
         userNameButton.setTitle(viewModel.userName, for: .normal)
         
         likesLabel.text = viewModel.likesLabelText
+        likeButton.tintColor = viewModel.likeButtonTintColor
+        likeButton.setImage(viewModel.likeButtonImage, for: .normal)
     }
     
     func configureActionButtons() {

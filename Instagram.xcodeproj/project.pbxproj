@@ -225,9 +225,9 @@
 			isa = PBXGroup;
 			children = (
 				5274650C28E5F826008A57A3 /* ImageUploader.swift */,
-				52D787F028F49B2B00677FCE /* PostService.swift */,
 				5274650E28E600E4008A57A3 /* AuthService.swift */,
 				5274651528EB2FCC008A57A3 /* UserService.swift */,
+				52D787F028F49B2B00677FCE /* PostService.swift */,
 				52D787FF28F710C400677FCE /* CommentService.swift */,
 			);
 			path = API;

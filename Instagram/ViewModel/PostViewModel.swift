@@ -5,10 +5,10 @@
 //  Created by Andrey Kryukov on 11.10.2022.
 //
 
-import Foundation
+import UIKit
 
 struct PostViewModel {
-    let post: Post
+    var post: Post
     
     var imageUrl: URL? {
         return URL(string: post.imageUrl)
@@ -30,11 +30,20 @@ struct PostViewModel {
         return post.likes
     }
     
+    var likeButtonTintColor: UIColor {
+        return post.didLike ? .red : .black
+    }
+    
+    var likeButtonImage: UIImage? {
+        let imageName = post.didLike ? "like_selected" : "like_unselected"
+        return UIImage(named: imageName)
+    }
+    
     var likesLabelText: String {
         if post.likes != 1 {
-            return "\(post.likes) like"
-        } else {
             return "\(post.likes) likes"
+        } else {
+            return "\(post.likes) like"
         }
     }
     
