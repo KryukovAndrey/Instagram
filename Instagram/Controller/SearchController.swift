@@ -56,7 +56,6 @@ class SearchController: UITableViewController {
         navigationItem.searchController = searchController
         definesPresentationContext = false
     }
-
 }
 
 // MARK: - UITableViewDataSource
