@@ -11,7 +11,7 @@ import Kingfisher
 protocol FeedCellDelegate: class {
     func cell(_ cell: FeedCell, wantsToShowCommentsFor post: Post)
     func cell(_ cell: FeedCell, didLike post: Post)
-
+    func cell(_ cell: FeedCell, wantsToShowProfileFor uid: String)
 }
 
 class FeedCell: UICollectionViewCell {
@@ -24,12 +24,17 @@ class FeedCell: UICollectionViewCell {
     
     weak var delegate: FeedCellDelegate?
     
-    private let profileImageView: UIImageView = {
+    private lazy var profileImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
         imageView.isUserInteractionEnabled = true
         imageView.backgroundColor = .lightGray
+        
+        let tap = UITapGestureRecognizer(target: self, action: #selector(showUserProfile))
+        imageView.isUserInteractionEnabled = true
+        imageView.addGestureRecognizer(tap)
+        
         return imageView
     }()
     
@@ -37,7 +42,7 @@ class FeedCell: UICollectionViewCell {
         let button = UIButton(type: .system)
         button.setTitleColor(.black, for: .normal)
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 13)
-        button.addTarget(self, action: #selector(didTapUserName), for: .touchUpInside)
+        button.addTarget(self, action: #selector(showUserProfile), for: .touchUpInside)
         return button
     }()
     
@@ -131,8 +136,9 @@ class FeedCell: UICollectionViewCell {
     
     // MARK: - Actions
     
-    @objc func didTapUserName() {
-        print("DEBUG: didTapUserName")
+    @objc func showUserProfile() {
+        guard let viewModel = viewModel else { return }
+        delegate?.cell(self, wantsToShowProfileFor: viewModel.post.ownerUid)
     }
     
     @objc func didTapComments() {
