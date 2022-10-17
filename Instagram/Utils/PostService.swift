@@ -22,7 +22,8 @@ struct PostService {
                         "ownerImageUrl": user.profileImage,
                         "ownerUid": uid] as [String : Any]
             
-            COLLECTION_POSTS.addDocument(data: data, completion: completion)
+            let docRef = COLLECTION_POSTS.addDocument(data: data, completion: completion)
+            self.updateUserFeedAfterPost(postId: docRef.documentID)
         }
     }
     
@@ -60,6 +61,20 @@ struct PostService {
         }
     }
     
+    static func fetchFeedPosts(completion: @escaping([Post]) -> Void) {
+        guard let uid = Auth.auth().currentUser?.uid else { return }
+        var posts = [Post]()
+        
+        COLLECTION_USERS.document(uid).collection("user-feed").getDocuments { snapshot, error in
+            snapshot?.documents.forEach({ document in
+                fetchPost(withPostId: document.documentID) { post in
+                    posts.append(post)
+                    completion(posts)
+                }
+            })
+        }
+    }
+    
     static func likePost(post: Post, completion: @escaping(FirestoreCompletion)) {
         guard let uid = Auth.auth().currentUser?.uid else { return }
         
@@ -87,5 +102,37 @@ struct PostService {
             guard let didLike = snapshot?.exists else { return }
             completion(didLike)
         }
+    }
+    
+    static func updateUserFeedAfterFollowing(user: User, didFollow: Bool) {
+        guard let uid = Auth.auth().currentUser?.uid else { return }
+        let query = COLLECTION_POSTS.whereField("ownerUid", isEqualTo: user.uid)
+
+        query.getDocuments { (snapshot, error) in
+            guard let documents = snapshot?.documents else { return }
+            let docIDs = documents.map({ $0.documentID })
+            
+            docIDs.forEach { id in
+                if didFollow {
+                    COLLECTION_USERS.document(uid).collection("user-feed").document(id).setData([:])
+                } else {
+                    COLLECTION_USERS.document(uid).collection("user-feed").document(id).delete()
+                }
+            }
+        }
+    }
+    
+    static func updateUserFeedAfterPost(postId: String) {
+        guard let uid = Auth.auth().currentUser?.uid else { return }
+        
+        COLLECTION_FOLLOWERS.document(uid).collection("user-followers").getDocuments { snapshot, _ in
+            guard let documents = snapshot?.documents else { return }
+            
+            documents.forEach { document in
+                COLLECTION_USERS.document(document.documentID).collection("user-feed").document(postId).setData([:])
+            }
+            COLLECTION_USERS.document(uid).collection("user-feed").document(postId).setData([:])
+        }
+
     }
 }
