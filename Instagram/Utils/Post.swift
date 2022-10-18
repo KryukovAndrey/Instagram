@@ -12,7 +12,7 @@ struct Post {
     var likes: Int
     let imageUrl: String
     let ownerUid: String
-    let timesamp: Timestamp
+    let timestamp: Timestamp
     let postId: String
     let ownerImageUrl: String
     let ownerUserName: String
@@ -23,7 +23,7 @@ struct Post {
         self.caption = dictionary["caption"] as? String ?? ""
         self.likes = dictionary["likes"] as? Int ?? 0
         self.imageUrl = dictionary["imageUrl"] as? String ?? ""
-        self.timesamp = dictionary["timesamp"] as? Timestamp ?? Timestamp(date: Date())
+        self.timestamp = dictionary["timestamp"] as? Timestamp ?? Timestamp(date: Date())
         self.ownerUid = dictionary["ownerUid"] as? String ?? ""
         self.ownerImageUrl = dictionary["ownerImageUrl"] as? String ?? ""
         self.ownerUserName = dictionary["ownerUserName"] as? String ?? ""
