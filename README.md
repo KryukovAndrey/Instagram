@@ -1,6 +1,17 @@
 # Demo Instagram by Andrey Kryukov    
 Вашему вниманию представляется демо версия инстаграма   
     
+![1 - 20%](https://user-images.githubusercontent.com/65622566/196799688-ab77c2de-e6f4-432f-ab67-dc0bdfe7ae29.png)
+![1 - 20%](https://user-images.githubusercontent.com/65622566/196799688-ab77c2de-e6f4-432f-ab67-dc0bdfe7ae29.png)
+![1 - 20%](https://user-images.githubusercontent.com/65622566/196799688-ab77c2de-e6f4-432f-ab67-dc0bdfe7ae29.png)
+![1 - 20%](https://user-images.githubusercontent.com/65622566/196799688-ab77c2de-e6f4-432f-ab67-dc0bdfe7ae29.png)
+
+![1 - 15%](https://user-images.githubusercontent.com/65622566/196799804-dccf79ce-2867-4bfb-8647-a8e8e369d755.png)
+![1 - 15%](https://user-images.githubusercontent.com/65622566/196799804-dccf79ce-2867-4bfb-8647-a8e8e369d755.png)
+![1 - 15%](https://user-images.githubusercontent.com/65622566/196799804-dccf79ce-2867-4bfb-8647-a8e8e369d755.png)
+![1 - 15%](https://user-images.githubusercontent.com/65622566/196799804-dccf79ce-2867-4bfb-8647-a8e8e369d755.png)
+
+
 ![логин - 30%](https://user-images.githubusercontent.com/65622566/196794487-355b206f-74bb-46c7-bf7e-ede98a10133b.png)
 ![Feed - 30%](https://user-images.githubusercontent.com/65622566/196797305-d857f073-d5b7-4991-815f-14d8ffc320ca.png)
 ![Search + posts - 30%](https://user-images.githubusercontent.com/65622566/196797458-82e27e3e-4546-490b-a277-f78d6b03fc7f.png)
