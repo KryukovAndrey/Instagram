@@ -2,32 +2,13 @@
 Вашему вниманию представляется демо версия инстаграма   
     
 ![1 - 20%](https://user-images.githubusercontent.com/65622566/196799688-ab77c2de-e6f4-432f-ab67-dc0bdfe7ae29.png)
-![1 - 20%](https://user-images.githubusercontent.com/65622566/196799688-ab77c2de-e6f4-432f-ab67-dc0bdfe7ae29.png)
-![1 - 20%](https://user-images.githubusercontent.com/65622566/196799688-ab77c2de-e6f4-432f-ab67-dc0bdfe7ae29.png)
-![1 - 20%](https://user-images.githubusercontent.com/65622566/196799688-ab77c2de-e6f4-432f-ab67-dc0bdfe7ae29.png)
-![1 - 20%](https://user-images.githubusercontent.com/65622566/196799688-ab77c2de-e6f4-432f-ab67-dc0bdfe7ae29.png)
-![1 - 20%](https://user-images.githubusercontent.com/65622566/196799688-ab77c2de-e6f4-432f-ab67-dc0bdfe7ae29.png)
-![1 - 20%](https://user-images.githubusercontent.com/65622566/196799688-ab77c2de-e6f4-432f-ab67-dc0bdfe7ae29.png)
-![1 - 20%](https://user-images.githubusercontent.com/65622566/196799688-ab77c2de-e6f4-432f-ab67-dc0bdfe7ae29.png)
-
-![1 - 15%](https://user-images.githubusercontent.com/65622566/196799804-dccf79ce-2867-4bfb-8647-a8e8e369d755.png)
-![1 - 15%](https://user-images.githubusercontent.com/65622566/196799804-dccf79ce-2867-4bfb-8647-a8e8e369d755.png)
-![1 - 15%](https://user-images.githubusercontent.com/65622566/196799804-dccf79ce-2867-4bfb-8647-a8e8e369d755.png)
-![1 - 15%](https://user-images.githubusercontent.com/65622566/196799804-dccf79ce-2867-4bfb-8647-a8e8e369d755.png)
-![1 - 15%](https://user-images.githubusercontent.com/65622566/196799804-dccf79ce-2867-4bfb-8647-a8e8e369d755.png)
-![1 - 15%](https://user-images.githubusercontent.com/65622566/196799804-dccf79ce-2867-4bfb-8647-a8e8e369d755.png)
-![1 - 15%](https://user-images.githubusercontent.com/65622566/196799804-dccf79ce-2867-4bfb-8647-a8e8e369d755.png)
-![1 - 15%](https://user-images.githubusercontent.com/65622566/196799804-dccf79ce-2867-4bfb-8647-a8e8e369d755.png)
-
-
-![логин - 30%](https://user-images.githubusercontent.com/65622566/196794487-355b206f-74bb-46c7-bf7e-ede98a10133b.png)
-![Feed - 30%](https://user-images.githubusercontent.com/65622566/196797305-d857f073-d5b7-4991-815f-14d8ffc320ca.png)
-![Search + posts - 30%](https://user-images.githubusercontent.com/65622566/196797458-82e27e3e-4546-490b-a277-f78d6b03fc7f.png)
-![Search - 30%](https://user-images.githubusercontent.com/65622566/196797642-39e169b5-65e4-442d-ae02-b10707f1da5b.png)
-![Create post 1 - 30%](https://user-images.githubusercontent.com/65622566/196797723-f9e5a22c-3eaa-4ffc-aec1-890dd3a9d0c0.png)
-![Create post 2 - 30%](https://user-images.githubusercontent.com/65622566/196797805-dcfc8735-78bf-4fac-aa76-ac64d4da0a65.png)
-![Notifications - 30%](https://user-images.githubusercontent.com/65622566/196797889-dd060ff3-e2c6-4bf9-8028-15daeec2beae.png)
-![Profile - 30%](https://user-images.githubusercontent.com/65622566/196798001-3a6aa27b-83e0-4576-8914-ff072b673656.png)
+![2 - 20%](https://user-images.githubusercontent.com/65622566/196801926-85cc2f17-7657-42bf-ace2-7a15fa3c6c7e.png)
+![3 - 20%](https://user-images.githubusercontent.com/65622566/196802212-dd49fd4b-c739-4224-a086-e2ebcb15e585.png)
+![4 - 20%](https://user-images.githubusercontent.com/65622566/196802446-e20f65e8-eb30-43be-af7d-67a38d0d7eab.png)
+![5 - 20%](https://user-images.githubusercontent.com/65622566/196802753-fb48f945-d855-4ae9-930d-98af8066fca0.png)
+![6 - 20%](https://user-images.githubusercontent.com/65622566/196802872-0cde8fe4-95b5-42aa-be9f-8e9042110569.png)
+![8 - 20%](https://user-images.githubusercontent.com/65622566/196803104-bbaf71f3-8757-4701-a249-97133750bcf7.png)
+![7 - 20%](https://user-images.githubusercontent.com/65622566/196802968-123e9ddf-c7e3-49d7-ade6-fe236d1db80c.png)
 
 ## Вход в приложение:
 1) Регистрация нового пользователя
