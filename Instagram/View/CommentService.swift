@@ -7,8 +7,7 @@
 
 import Firebase
 
-class CommentService {
-    
+struct CommentService {
     static func uploadComment(comment: String, postID: String, user: User, completion: @escaping(FirestoreCompletion)) {
         
         let data: [String: Any] = ["uid": user.uid,

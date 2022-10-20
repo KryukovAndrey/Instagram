@@ -7,11 +7,11 @@
 
 import UIKit
 
-protocol UploadPostControllerDelegate: class {
+protocol UploadPostControllerDelegate: AnyObject {
     func controllerDidFinishUploadingPost(_ controller: UploadPostController)
 }
 
-class UploadPostController: UIViewController {
+final class UploadPostController: UIViewController {
     
     // MARK: - Properties
     
@@ -57,14 +57,14 @@ class UploadPostController: UIViewController {
     
     // MARK: - Actions
     
-    @objc func didTapCancel() {
+    @objc private func didTapCancel() {
         dismiss(animated: true, completion: nil)
     }
     
-    @objc func didTapDone() {
-        guard let image = selectedImage else { return }
-        guard let caption = captionTextView.text else { return }
-        guard let user = currentUser else { return }
+    @objc private func didTapDone() {
+        guard let image = selectedImage,
+              let caption = captionTextView.text,
+              let user = currentUser else { return }
 
         showLoader(true)
         
@@ -83,13 +83,13 @@ class UploadPostController: UIViewController {
     
     // MARK: - Helpers
     
-    func checkMaxLenght(_ textView: UITextView) {
+    private func checkMaxLenght(_ textView: UITextView) {
         if textView.text.count > 100 {
             textView.deleteBackward()
         }
     }
     
-    func configureUI() {
+    private func configureUI() {
         view.backgroundColor = .white
         navigationItem.title = "Upload Post"
         

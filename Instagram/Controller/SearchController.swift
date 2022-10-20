@@ -10,7 +10,7 @@ import UIKit
 private let reuseIdentifier = "UserCell"
 private let postCellIdentifier = "ProfileCell"
 
-class SearchController: UIViewController {
+final class SearchController: UIViewController {
     
     // MARK: - Properties
     
@@ -47,14 +47,14 @@ class SearchController: UIViewController {
 
     // MARK: - API
 
-    func fetchUsers() {
+    private func fetchUsers() {
         UserService.fecthUsers { users in
             self.users = users
             self.tableView.reloadData()
         }
     }
     
-    func fetchPosts() {
+    private func fetchPosts() {
         PostService.fetchPosts(completion: { posts in
             self.posts = posts
             self.collectionView.reloadData()
@@ -63,7 +63,7 @@ class SearchController: UIViewController {
     
     // MARK: - Helpers
     
-    func configureUI() {
+    private func configureUI() {
         view.backgroundColor = .white
         navigationItem.title = "Explore"
         
@@ -80,7 +80,7 @@ class SearchController: UIViewController {
         collectionView.fillSuperview()
     }
     
-    func configureSearchController() {
+    private func configureSearchController() {
         searchController.searchResultsUpdater = self
         searchController.obscuresBackgroundDuringPresentation = false
         searchController.hidesNavigationBarDuringPresentation = false

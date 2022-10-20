@@ -8,11 +8,11 @@
 import UIKit
 import Firebase
 
-protocol AuthenticationDelegate: class {
+protocol AuthenticationDelegate: AnyObject {
     func authenticationDidComplete()
 }
 
-class LoginController: UIViewController {
+final class LoginController: UIViewController {
     
     // MARK: - Properties
     
@@ -75,25 +75,24 @@ class LoginController: UIViewController {
     
     // MARK: - Actions
     
-    @objc func handleShowSingUp() {
+    @objc private func handleShowSingUp() {
         let controller = RegistrationController()
         controller.delegate = delegate
         navigationController?.pushViewController(controller, animated: true)
     }
     
-    @objc func textDidChange(sender: UITextField) {
+    @objc private func textDidChange(sender: UITextField) {
         if sender == emailTextField {
             viewModel.email = sender.text
         } else {
             viewModel.password = sender.text
         }
-        
         updateForm()
     }
     
-    @objc func handleLogin() {
-        guard let email = emailTextField.text else { return }
-        guard let password = passwordTextField.text else { return }
+    @objc private func handleLogin() {
+        guard let email = emailTextField.text,
+              let password = passwordTextField.text else { return }
         AuthService.logUserIn(withEmail: email, password: password) { result, error in
             if let error = error {
                 print("DEBUG: Failed to regiter user \(error.localizedDescription)")
@@ -103,7 +102,7 @@ class LoginController: UIViewController {
         }
     }
     
-    @objc func handleShowResetPassword() {
+    @objc private func handleShowResetPassword() {
         let controller = ResetPasswordController()
         controller.delegate = self
         controller.email = emailTextField.text
@@ -112,7 +111,7 @@ class LoginController: UIViewController {
     
     // MARK: - Helpers
     
-    func configureUI() {
+    private func configureUI() {
         configureGradientLayer()
         navigationController?.navigationBar.isHidden = true
         navigationController?.navigationBar.barStyle = .black
@@ -133,7 +132,7 @@ class LoginController: UIViewController {
         dontHaveAccountButton.anchor(bottom: view.safeAreaLayoutGuide.bottomAnchor)
     }
     
-    func configureNotificationObserers() {
+    private func configureNotificationObserers() {
         emailTextField.addTarget(self, action: #selector(textDidChange), for: .editingChanged)
         passwordTextField.addTarget(self, action: #selector(textDidChange), for: .editingChanged)
     }

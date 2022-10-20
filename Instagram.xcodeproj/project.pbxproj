@@ -47,7 +47,6 @@
 		5274652028EB580D008A57A3 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 5274651F28EB580D008A57A3 /* Kingfisher */; };
 		528004BB28E2F4C4002E270C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 528004BA28E2F4C4002E270C /* AppDelegate.swift */; };
 		528004BD28E2F4C4002E270C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 528004BC28E2F4C4002E270C /* SceneDelegate.swift */; };
-		528004BF28E2F4C4002E270C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 528004BE28E2F4C4002E270C /* ViewController.swift */; };
 		528004C228E2F4C4002E270C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 528004C028E2F4C4002E270C /* Main.storyboard */; };
 		528004C428E2F4C7002E270C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 528004C328E2F4C7002E270C /* Assets.xcassets */; };
 		528004C728E2F4C7002E270C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 528004C528E2F4C7002E270C /* LaunchScreen.storyboard */; };
@@ -98,7 +97,6 @@
 		528004B728E2F4C4002E270C /* Instagram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Instagram.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		528004BA28E2F4C4002E270C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		528004BC28E2F4C4002E270C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		528004BE28E2F4C4002E270C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		528004C128E2F4C4002E270C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		528004C328E2F4C7002E270C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		528004C628E2F4C7002E270C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -212,7 +210,6 @@
 				528004BA28E2F4C4002E270C /* AppDelegate.swift */,
 				528004BC28E2F4C4002E270C /* SceneDelegate.swift */,
 				527464D328E5E80D008A57A3 /* GoogleService-Info.plist */,
-				528004BE28E2F4C4002E270C /* ViewController.swift */,
 				528004C028E2F4C4002E270C /* Main.storyboard */,
 				528004C328E2F4C7002E270C /* Assets.xcassets */,
 				528004C528E2F4C7002E270C /* LaunchScreen.storyboard */,
@@ -425,7 +422,6 @@
 				5274651328E73708008A57A3 /* ProfileHeader.swift in Sources */,
 				52D787FA28F6D12A00677FCE /* CommentController.swift in Sources */,
 				52D787ED28F45B3A00677FCE /* UploadPostController.swift in Sources */,
-				528004BF28E2F4C4002E270C /* ViewController.swift in Sources */,
 				528004E628E4A982002E270C /* LoginController.swift in Sources */,
 				528004E128E47252002E270C /* FeedCell.swift in Sources */,
 				528004DB28E2FDAF002E270C /* ImageSelectorController.swift in Sources */,

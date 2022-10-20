@@ -7,13 +7,13 @@
 
 import UIKit
 
-protocol NotificationCellDelegate: class {
+protocol NotificationCellDelegate: AnyObject {
     func cell(_ cell: NotificationCell, wantsToFollow uid: String)
     func cell(_ cell: NotificationCell, wantsToUnfollow uid: String)
     func cell(_ cell: NotificationCell, wantsToViewPost postId: String)
 }
 
-class NotificationCell: UITableViewCell {
+final class NotificationCell: UITableViewCell {
     
     // MARK: - Propeties
     

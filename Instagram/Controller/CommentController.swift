@@ -9,7 +9,7 @@ import UIKit
 
 private let reuseIdentifier = "CommentCell"
 
-class CommentController: UICollectionViewController {
+final class CommentController: UICollectionViewController {
     
     // MARK: - Properties
     
@@ -60,7 +60,7 @@ class CommentController: UICollectionViewController {
     
     // MARK: - API
     
-    func fetchComments() {
+    private func fetchComments() {
         CommentService.fetchComments(forPost: post.postId) { comments in
             self.comments = comments
             self.collectionView.reloadData()
@@ -69,7 +69,7 @@ class CommentController: UICollectionViewController {
     
     // MARK: - Helpers
 
-    func configureCollectionView() {
+    private func configureCollectionView() {
         navigationItem.title = "Comments"
         collectionView.backgroundColor = .white
         collectionView.register(CommentCell.self, forCellWithReuseIdentifier: reuseIdentifier)

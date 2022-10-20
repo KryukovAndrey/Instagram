@@ -10,7 +10,7 @@ import Firebase
 
 private let reuseIdentifier = "Cell"
 
-class FeedController: UICollectionViewController {
+final class FeedController: UICollectionViewController {
     
     // MARK: - Properties
     
@@ -39,7 +39,7 @@ class FeedController: UICollectionViewController {
         fetchPosts()
     }
 
-    @objc func handleLogout() {
+    @objc private func handleLogout() {
         do {
             try Auth.auth().signOut()
             let controller = LoginController()
@@ -54,7 +54,7 @@ class FeedController: UICollectionViewController {
     
     // MARK: - API
     
-    func fetchPosts() {
+    private func fetchPosts() {
         guard post == nil else { return }        
         PostService.fetchFeedPosts { posts in
             self.posts = posts
@@ -63,7 +63,7 @@ class FeedController: UICollectionViewController {
         }
     }
     
-    func checkIfUserLikedPost() {
+    private func checkIfUserLikedPost() {
         if let post = post {
             PostService.checkIfUserLikedPost(post: post) { didLike in
                 self.post?.didLike = didLike
@@ -81,7 +81,7 @@ class FeedController: UICollectionViewController {
     
     // MARK: - Helpers
 
-    func configureUI() {
+    private func configureUI() {
         collectionView.backgroundColor = .white
         
         collectionView.register(FeedCell.self, forCellWithReuseIdentifier: reuseIdentifier)
@@ -145,8 +145,8 @@ extension FeedController: FeedCellDelegate {
     }
     
     func cell(_ cell: FeedCell, didLike post: Post) {
-        guard let tab = tabBarController as? MainTabController else { return }
-        guard let user = tab.user else { return }
+        guard let tab = tabBarController as? MainTabController,
+              let user = tab.user else { return }
         
         cell.viewModel?.post.didLike.toggle()
         

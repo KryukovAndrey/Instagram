@@ -7,7 +7,7 @@
 
 import UIKit
 
-class InputTextView: UITextView {
+final class InputTextView: UITextView {
     
     // MARK: - Properties
     
@@ -52,5 +52,4 @@ class InputTextView: UITextView {
     @objc func handleTextDidChange() {
         placeholderLabel.isHidden = !text.isEmpty
     }
-
 }

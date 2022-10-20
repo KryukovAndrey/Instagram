@@ -10,7 +10,7 @@ import UIKit
 private let cellIdentifier = "ProfileCell"
 private let headerIdentifier = "ProfileHeader"
 
-class ProfileController: UICollectionViewController {
+final class ProfileController: UICollectionViewController {
     
     // MARK: - Properties
     
@@ -38,21 +38,21 @@ class ProfileController: UICollectionViewController {
     
     // MARK: API
     
-    func checkIfUserIsFollowed() {
+    private func checkIfUserIsFollowed() {
         UserService.checkIfUserIsFollowed(uid: user.uid) { isFollowed in
             self.user.isFollowed = isFollowed
             self.collectionView.reloadData()
         }
     }
     
-    func fetchUserStats() {
+    private func fetchUserStats() {
         UserService.fetchUserStats(uid: user.uid) { stats in
             self.user.stats = stats
             self.collectionView.reloadData()
         }
     }
     
-    func fetchPosts() {
+    private func fetchPosts() {
         PostService.fetchPosts(forUser: user.uid) { posts in
             self.posts = posts
             self.collectionView.reloadData()
@@ -61,7 +61,7 @@ class ProfileController: UICollectionViewController {
     
     // MARK: Helpers
     
-    func configureCollectionView() {
+    private func configureCollectionView() {
         navigationItem.title = user.userName
         collectionView.backgroundColor = .white
         collectionView.register(ProfileCell.self, forCellWithReuseIdentifier: cellIdentifier)
@@ -129,8 +129,8 @@ extension ProfileController: UICollectionViewDelegateFlowLayout {
 
 extension ProfileController: ProfileHeaderDelegate {
     func header(_ profileHeader: ProfileHeader, didTapActionButtonFor user: User) {
-        guard let tab = tabBarController as? MainTabController else { return }
-        guard let currentUser = tab.user else { return }
+        guard let tab = tabBarController as? MainTabController,
+              let currentUser = tab.user else { return }
 
         if user.isCurrentUser {
             print("user.isCurrentUser")

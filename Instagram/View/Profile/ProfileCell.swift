@@ -8,7 +8,7 @@
 import UIKit
 import Kingfisher
 
-class ProfileCell: UICollectionViewCell {
+final class ProfileCell: UICollectionViewCell {
     
     // MARK: - Properties
     

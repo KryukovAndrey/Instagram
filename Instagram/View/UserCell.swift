@@ -8,7 +8,7 @@
 import UIKit
 import Kingfisher
 
-class UserCell: UITableViewCell {
+final class UserCell: UITableViewCell {
     
     // MARK: - Properties
     

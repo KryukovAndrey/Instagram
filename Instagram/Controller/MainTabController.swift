@@ -9,7 +9,7 @@ import UIKit
 import Firebase
 import YPImagePicker
 
-class MainTabController: UITabBarController {
+final class MainTabController: UITabBarController {
     
     // MARK: - Properties
     
@@ -30,14 +30,14 @@ class MainTabController: UITabBarController {
     
     // MARK: - API
     
-    func fetchUser() {
+    private func fetchUser() {
         guard let uid = Auth.auth().currentUser?.uid else { return }
         UserService.fecthUser(withUid: uid) { user in
             self.user = user
          }
     }
     
-    func checkIfUserIsLoggedIn(){
+    private func checkIfUserIsLoggedIn(){
         if Auth.auth().currentUser == nil {
             DispatchQueue.main.async {
                 let controller = LoginController()
@@ -51,7 +51,7 @@ class MainTabController: UITabBarController {
     
     // MARK: - Helpers
     
-    func configureViewController(with user: User) {
+    private func configureViewController(with user: User) {
         view.backgroundColor = .white
         
         self.delegate = self
@@ -72,7 +72,7 @@ class MainTabController: UITabBarController {
         tabBar.tintColor = .black
     }
     
-    func templateNavigationController(unselectedImage: UIImage, selectedImage: UIImage, rootViewController: UIViewController) -> UINavigationController {
+    private func templateNavigationController(unselectedImage: UIImage, selectedImage: UIImage, rootViewController: UIViewController) -> UINavigationController {
         let nav = UINavigationController(rootViewController: rootViewController)
         nav.tabBarItem.image = unselectedImage
         nav.tabBarItem.selectedImage = selectedImage
@@ -80,7 +80,7 @@ class MainTabController: UITabBarController {
         return nav
     }
     
-    func didFinishPickingMedia(_ picker: YPImagePicker) {
+    private func didFinishPickingMedia(_ picker: YPImagePicker) {
         picker.didFinishPicking { items, _ in
             picker.dismiss(animated: false) {
                 guard let selectedImage = items.singlePhoto?.image else { return }
@@ -141,8 +141,8 @@ extension MainTabController: UploadPostControllerDelegate {
         selectedIndex = 0
         controller.dismiss(animated: true, completion: nil)
         
-        guard let feedNav = viewControllers?.first as? UINavigationController else { return }
-        guard let feed = feedNav.viewControllers.first as? FeedController else { return }
+        guard let feedNav = viewControllers?.first as? UINavigationController,
+              let feed = feedNav.viewControllers.first as? FeedController else { return }
         feed.hanrleRefresh()
     }
 }

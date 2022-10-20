@@ -9,7 +9,7 @@ import UIKit
 
 private let reuseIdentifier = "NotificationCell"
 
-class NotificationController: UITableViewController {
+final class NotificationController: UITableViewController {
     
     // MARK: - Properties
 
@@ -30,14 +30,14 @@ class NotificationController: UITableViewController {
     
     // MARK: - API
     
-    func fetchNotifications() {
+    private func fetchNotifications() {
         NotificationService.fetchNotifications { notifications in
             self.notifications = notifications
             self.checkIfUserIsFollowed()
         }
     }
     
-    func checkIfUserIsFollowed() {
+    private func checkIfUserIsFollowed() {
         notifications.forEach { notification in
             guard notification.type == .follow else {return}
             
@@ -51,14 +51,14 @@ class NotificationController: UITableViewController {
     
     // MARK: - Actions
 
-    @objc func handleRefresh() {
+    @objc private func handleRefresh() {
         fetchNotifications()
         refresher.endRefreshing()
     }
     
     // MARK: - Helpers
     
-    func configureTableView() {
+    private func configureTableView() {
         view.backgroundColor = .white
         navigationItem.title = "Notifications"
         

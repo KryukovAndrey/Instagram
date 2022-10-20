@@ -8,13 +8,13 @@
 import UIKit
 import Kingfisher
 
-protocol FeedCellDelegate: class {
+protocol FeedCellDelegate: AnyObject {
     func cell(_ cell: FeedCell, wantsToShowCommentsFor post: Post)
     func cell(_ cell: FeedCell, didLike post: Post)
     func cell(_ cell: FeedCell, wantsToShowProfileFor uid: String)
 }
 
-class FeedCell: UICollectionViewCell {
+final class FeedCell: UICollectionViewCell {
     
     // MARK: - Properties
     

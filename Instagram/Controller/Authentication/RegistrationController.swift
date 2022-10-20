@@ -7,7 +7,7 @@
 
 import UIKit
 
-class RegistrationController: UIViewController {
+final class RegistrationController: UIViewController {
     
     // MARK: - Properties
     
@@ -68,12 +68,12 @@ class RegistrationController: UIViewController {
     
     // MARK: - Actions
     
-    @objc func handleSingUp() {
-        guard let email = emailTextField.text else { return }
-        guard let password = passwordTextField.text else { return }
-        guard let fullName = fullNameTextField.text else { return }
-        guard let userName = userNameTextField.text else { return }
-        guard let profileImage = self.profileImage else { return }
+    @objc private func handleSingUp() {
+        guard let email = emailTextField.text,
+              let password = passwordTextField.text,
+              let fullName = fullNameTextField.text,
+              let userName = userNameTextField.text,
+              let profileImage = self.profileImage else { return }
         
         let cretential = AuthCretentials(email: email,
                                          password: password,
@@ -91,11 +91,11 @@ class RegistrationController: UIViewController {
         }
     }
     
-    @objc func handleShowLogin() {
+    @objc private func handleShowLogin() {
         navigationController?.popViewController(animated: true)
     }
     
-    @objc func textDidChange(sender: UITextField) {
+    @objc private func textDidChange(sender: UITextField) {
         if sender == emailTextField {
             viewModel.email = sender.text
         } else if sender == passwordTextField {
@@ -109,7 +109,7 @@ class RegistrationController: UIViewController {
         updateForm()
     }
     
-    @objc func handleProfilePhotoSelect() {
+    @objc private func handleProfilePhotoSelect() {
         let picker = UIImagePickerController()
         picker.delegate = self
         picker.allowsEditing = true
@@ -119,7 +119,7 @@ class RegistrationController: UIViewController {
     
     // MARK: - Helpers
     
-    func configureUI() {
+    private func configureUI() {
         configureGradientLayer()
         
         view.addSubview(plushPhotoButton)
@@ -138,7 +138,7 @@ class RegistrationController: UIViewController {
         alreadyHaveAccountButton.anchor(bottom: view.safeAreaLayoutGuide.bottomAnchor)
     }
     
-    func configureNotificationObserers() {
+    private func configureNotificationObserers() {
         emailTextField.addTarget(self, action: #selector(textDidChange), for: .editingChanged)
         passwordTextField.addTarget(self, action: #selector(textDidChange), for: .editingChanged)
         fullNameTextField.addTarget(self, action: #selector(textDidChange), for: .editingChanged)

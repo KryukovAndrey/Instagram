@@ -7,11 +7,11 @@
 
 import UIKit
 
-protocol ResetPasswordControllerDelegate: class {
+protocol ResetPasswordControllerDelegate: AnyObject {
     func controllerDidSendesetPasswordLink(_ controller: ResetPasswordController)
 }
 
-class ResetPasswordController: UIViewController {
+final class ResetPasswordController: UIViewController {
     
     // MARK: - Properties
     
@@ -57,7 +57,7 @@ class ResetPasswordController: UIViewController {
     
     // MARK: - Actions
     
-    @objc func handleResetPassword() {
+    @objc private func handleResetPassword() {
         guard let email = emailTextField.text else { return }
         
         showLoader(true)
@@ -71,11 +71,11 @@ class ResetPasswordController: UIViewController {
         }
     }
     
-    @objc func handleDissmisal() {
+    @objc private func handleDissmisal() {
         navigationController?.popViewController(animated: true)
     }
     
-    @objc func textDidChange(sender: UITextField) {
+    @objc private func textDidChange(sender: UITextField) {
         if sender == emailTextField {
             viewModel.email = sender.text
         }
@@ -84,7 +84,7 @@ class ResetPasswordController: UIViewController {
     
     // MARK: - Helpers
     
-    func configureUI() {
+    private func configureUI() {
         configureGradientLayer()
         
         emailTextField.text = email
