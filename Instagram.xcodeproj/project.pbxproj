@@ -78,6 +78,10 @@
 		52D7880228F719D100677FCE /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D7880128F719D100677FCE /* Comment.swift */; };
 		52D7880428F7223000677FCE /* CommentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D7880328F7223000677FCE /* CommentViewModel.swift */; };
 		52D7880628F972D500677FCE /* NotificationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D7880528F972D500677FCE /* NotificationCell.swift */; };
+		52D7880828F9805700677FCE /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D7880728F9805700677FCE /* Notification.swift */; };
+		52D7880A28F985E000677FCE /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D7880928F985E000677FCE /* NotificationService.swift */; };
+		52D7880C28F9BC1300677FCE /* NotificationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D7880B28F9BC1300677FCE /* NotificationViewModel.swift */; };
+		52D7880E28FEA48E00677FCE /* ResetPasswordController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52D7880D28FEA48E00677FCE /* ResetPasswordController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -124,6 +128,10 @@
 		52D7880128F719D100677FCE /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Comment.swift; path = Instagram/View/Comment.swift; sourceTree = SOURCE_ROOT; };
 		52D7880328F7223000677FCE /* CommentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentViewModel.swift; sourceTree = "<group>"; };
 		52D7880528F972D500677FCE /* NotificationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationCell.swift; sourceTree = "<group>"; };
+		52D7880728F9805700677FCE /* Notification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Notification.swift; path = Instagram/View/Notification.swift; sourceTree = SOURCE_ROOT; };
+		52D7880928F985E000677FCE /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NotificationService.swift; path = Instagram/View/NotificationService.swift; sourceTree = SOURCE_ROOT; };
+		52D7880B28F9BC1300677FCE /* NotificationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationViewModel.swift; sourceTree = "<group>"; };
+		52D7880D28FEA48E00677FCE /* ResetPasswordController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -231,6 +239,7 @@
 				5274651528EB2FCC008A57A3 /* UserService.swift */,
 				52D787F028F49B2B00677FCE /* PostService.swift */,
 				52D787FF28F710C400677FCE /* CommentService.swift */,
+				52D7880928F985E000677FCE /* NotificationService.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -243,10 +252,10 @@
 				528004D628E2FD89002E270C /* FeedController.swift */,
 				528004D828E2FD9B002E270C /* SearchController.swift */,
 				528004DA28E2FDAF002E270C /* ImageSelectorController.swift */,
-				528004DC28E2FDCB002E270C /* NotificationController.swift */,
 				528004DE28E2FDD6002E270C /* ProfileController.swift */,
 				52D787EC28F45B3A00677FCE /* UploadPostController.swift */,
 				52D787F928F6D12A00677FCE /* CommentController.swift */,
+				528004DC28E2FDCB002E270C /* NotificationController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -259,6 +268,7 @@
 				52D787E728ECC05A00677FCE /* UserCellViewModel.swift */,
 				52D787F728F5AE0000677FCE /* PostViewModel.swift */,
 				52D7880328F7223000677FCE /* CommentViewModel.swift */,
+				52D7880B28F9BC1300677FCE /* NotificationViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -283,6 +293,7 @@
 				5274651928EB388C008A57A3 /* User.swift */,
 				52D787F528F5A00800677FCE /* Post.swift */,
 				52D7880128F719D100677FCE /* Comment.swift */,
+				52D7880728F9805700677FCE /* Notification.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -292,6 +303,7 @@
 			children = (
 				528004E528E4A982002E270C /* LoginController.swift */,
 				528004E728E4A99E002E270C /* RegistrationController.swift */,
+				52D7880D28FEA48E00677FCE /* ResetPasswordController.swift */,
 			);
 			path = Authentication;
 			sourceTree = "<group>";
@@ -407,6 +419,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				52D7880428F7223000677FCE /* CommentViewModel.swift in Sources */,
+				52D7880C28F9BC1300677FCE /* NotificationViewModel.swift in Sources */,
 				52D787F828F5AE0000677FCE /* PostViewModel.swift in Sources */,
 				528004EA28E4D902002E270C /* CustomTextField.swift in Sources */,
 				5274651328E73708008A57A3 /* ProfileHeader.swift in Sources */,
@@ -418,6 +431,7 @@
 				528004DB28E2FDAF002E270C /* ImageSelectorController.swift in Sources */,
 				52D7880028F710C400677FCE /* CommentService.swift in Sources */,
 				52D7880228F719D100677FCE /* Comment.swift in Sources */,
+				52D7880828F9805700677FCE /* Notification.swift in Sources */,
 				528004E328E475EF002E270C /* Extentions.swift in Sources */,
 				527464D228E59E48008A57A3 /* AuthenticationViewModel.swift in Sources */,
 				52D787E628EC4C7800677FCE /* UserCell.swift in Sources */,
@@ -428,11 +442,13 @@
 				528004BB28E2F4C4002E270C /* AppDelegate.swift in Sources */,
 				5274651C28EB3CE4008A57A3 /* ProfileHeaderViewModel.swift in Sources */,
 				5274651828EB33FB008A57A3 /* Constants.swift in Sources */,
+				52D7880E28FEA48E00677FCE /* ResetPasswordController.swift in Sources */,
 				528004DF28E2FDD6002E270C /* ProfileController.swift in Sources */,
 				52D787E828ECC05A00677FCE /* UserCellViewModel.swift in Sources */,
 				528004D728E2FD89002E270C /* FeedController.swift in Sources */,
 				528004D528E2F6AD002E270C /* MainTabController.swift in Sources */,
 				5274650D28E5F826008A57A3 /* ImageUploader.swift in Sources */,
+				52D7880A28F985E000677FCE /* NotificationService.swift in Sources */,
 				52D787F628F5A00800677FCE /* Post.swift in Sources */,
 				5274650F28E600E4008A57A3 /* AuthService.swift in Sources */,
 				52D787FE28F6E13400677FCE /* CommentInputAccesoryView.swift in Sources */,
